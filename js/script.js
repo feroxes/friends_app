@@ -1,6 +1,6 @@
 const url = 'https://randomuser.me/api/';
 const config = '?results=';
-const howManyFriend = 50 //prompt('How many friends do you want to have?:)', 12);
+const howManyFriend = 100 //prompt('How many friends do you want to have?:)', 12);
 
 
 const endPoint = url + config + howManyFriend;
@@ -89,7 +89,7 @@ let runApp = function (data) {
             cardIcons.addEventListener('click', updateFriendInfo)
         }
         ;
-    }; // render function ends
+    };
     render(data);
 
     function createDomElement(tagName, config, tagToAdd) {
@@ -201,33 +201,24 @@ let runApp = function (data) {
 
     function searchFriend(e) {
         let searchResult = [];
-        let value = [];
-        console.log(e.keyCode);
-        if (e.keyCode <= 90 && e.keyCode >= 65) {
-            value = e.srcElement.value.split('');
-            console.log(value);
-        }else if(e.keyCode == 8){
-            value = e.srcElement.value.split('');
-            console.log(value);
-        }
+        let value = e.srcElement.value;
 
         for (let i = 0; i < GLOBAL_INFORMATION.length; i++) {
-            let name = GLOBAL_INFORMATION[i].name.first.split('');
+            let name = GLOBAL_INFORMATION[i].name.first;
             for (j = value.length-1; j < value.length; j++) {
-                if (value[j] == name[j]) {
+                console.log();
+                if (value == name.slice(0, value.length)) {
                     searchResult.push(GLOBAL_INFORMATION[i]);
+                }else {
+                    cleanDashboard();
                 }
             }
         }
-        GLOBAL_INFORMATION = searchResult;
+
         if (searchResult.length > 0) {
             cleanDashboard();
             render(searchResult);
         }
-        if(value.length == 0){
-            reset();
-        }
-
     };
 
     function reset(e) {
