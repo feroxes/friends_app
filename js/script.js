@@ -2,9 +2,7 @@ const url = 'https://randomuser.me/api/';
 const config = '?results=';
 const howManyFriend = 100 //prompt('How many friends do you want to have?:)', 12);
 
-
 const endPoint = url + config + howManyFriend;
-
 let data;
 
 fetch(endPoint).then(response => {
@@ -21,7 +19,6 @@ fetch(endPoint).then(response => {
 });
 
 let runApp = function (data) {
-    console.log(data);
     let GLOBAL_INFORMATION = data;
 
     const dashboard = document.getElementById('dashboard');
@@ -84,11 +81,9 @@ let runApp = function (data) {
                     myInfoCard.children[0].innerHTML = 'My phone number is  ';
                     myInfoCard.children[1].innerHTML = userInformation[i].cell;
                 }
-
             };
             cardIcons.addEventListener('click', updateFriendInfo)
-        }
-        ;
+        };
     };
     render(data);
 
@@ -151,7 +146,6 @@ let runApp = function (data) {
                     justMan.push(GLOBAL_INFORMATION[i]);
                 }
             }
-            // GLOBAL_INFORMATION = justMan;
             cleanDashboard();
             render(justMan);
         } else if (e.target.id == 'female-btn') {
@@ -160,7 +154,6 @@ let runApp = function (data) {
                     justGirls.push(GLOBAL_INFORMATION[i]);
                 }
             }
-            // GLOBAL_INFORMATION = justGirls;
             cleanDashboard();
             render(justGirls);
         }
@@ -227,7 +220,6 @@ let runApp = function (data) {
         cleanDashboard();
         render(data);
     };
-
 
     byAgeUpBtn.addEventListener('click', sortFormSmallToBiggerAge);
     byAgeDownBtn.addEventListener('click', sortFormBiggerToSmallAge);

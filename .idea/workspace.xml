@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="379c5564-bc0f-4f9b-8d4d-3e7d4426ddd8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/script.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -27,8 +28,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/style/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4725">
-              <caret line="315" column="18" selection-start-line="315" selection-start-column="18" selection-end-line="315" selection-end-column="18" />
+            <state relative-caret-position="-4">
+              <caret line="282" column="26" lean-forward="true" selection-start-line="282" selection-start-column="26" selection-end-line="282" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -36,8 +37,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="202" column="29" lean-forward="true" selection-start-line="202" selection-start-column="29" selection-end-line="202" selection-end-column="29" />
+            <state relative-caret-position="305">
+              <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+              <folding>
+                <marker date="1543827642900" expanded="true" signature="8022:8051" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -79,16 +83,6 @@
             <path>
               <item name="friends_app" type="b2602c69:ProjectViewProjectNode" />
               <item name="friends_app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="friends_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="friends_app" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="friends_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="friends_app" type="462c0819:PsiDirectoryNode" />
-              <item name="style" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -136,7 +130,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19850000" />
+    <option name="totallyTimeSpent" value="20466000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="962" extended-state="0" />
@@ -183,13 +177,6 @@
     <entry file="file://$USER_HOME$/dan.it/Homework/final_project/step_project_forkio/src/style/1_header/header_480.scss">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/style/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4725">
-          <caret line="315" column="18" selection-start-line="315" selection-start-column="18" selection-end-line="315" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
@@ -197,10 +184,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/style/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4">
+          <caret line="282" column="26" lean-forward="true" selection-start-line="282" selection-start-column="26" selection-end-line="282" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="202" column="29" lean-forward="true" selection-start-line="202" selection-start-column="29" selection-end-line="202" selection-end-column="29" />
+        <state relative-caret-position="305">
+          <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+          <folding>
+            <marker date="1543827642900" expanded="true" signature="8022:8051" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
