@@ -1,6 +1,6 @@
 const url = 'https://randomuser.me/api/';
 const config = '?results=';
-const howManyFriend = prompt('How many friends do you want to have?:)', 12);
+const howManyFriend = 50 //prompt('How many friends do you want to have?:)', 12);
 
 
 const endPoint = url + config + howManyFriend;
@@ -32,6 +32,7 @@ let runApp = function (data) {
     const resetBtn = document.getElementById('reset-btn');
     const azBtn = document.getElementById('by-name-a-z');
     const zaBtn = document.getElementById('by-name-z-a');
+    const searchInput = document.getElementById('search');
 
     function render(userInformation) {
         let cardList = createDomElement('div', {id: 'card-list'}, dashboard);
@@ -86,20 +87,27 @@ let runApp = function (data) {
 
             };
             cardIcons.addEventListener('click', updateFriendInfo)
-        };
-        function createDomElement(tagName, config, tagToAdd) {
-            let tag = document.createElement(tagName);
-            Object.assign(tag, config)
-            tagToAdd.appendChild(tag);
-            return tag;
-        }; // for loop ends
+        }
+        ;
     }; // render function ends
-
     render(data);
+
+    function createDomElement(tagName, config, tagToAdd) {
+        let tag = document.createElement(tagName);
+        Object.assign(tag, config)
+        tagToAdd.appendChild(tag);
+        return tag;
+    };
 
     function cleanDashboard() {
         let cards = document.getElementById('card-list');
-        cards.remove();
+        if (cards === null) {
+            return;
+        } else {
+            cards.remove();
+
+        }
+
     };
 
     function sortFormSmallToBiggerAge() {
@@ -134,31 +142,32 @@ let runApp = function (data) {
         render(infoToSorts);
     };
 
-    function showFameOrFemale(e){
+    function showMaleOrFemale(e) {
         let justMan = [];
         let justGirls = [];
-        if(e.target.id == 'male-btn'){
-            for(let i = 0; i < data.length; i++){
-                if(data[i].gender == 'male'){
-                    justMan.push(data[i]);
+        if (e.target.id == 'male-btn') {
+            for (let i = 0; i < GLOBAL_INFORMATION.length; i++) {
+                if (GLOBAL_INFORMATION[i].gender == 'male') {
+                    justMan.push(GLOBAL_INFORMATION[i]);
                 }
             }
-            GLOBAL_INFORMATION = justMan;
+            // GLOBAL_INFORMATION = justMan;
             cleanDashboard();
             render(justMan);
-        }else if(e.target.id == 'female-btn'){
-            for(let i = 0; i < data.length; i++){
-                if(data[i].gender == 'female'){
-                    justGirls.push(data[i]);
+        } else if (e.target.id == 'female-btn') {
+            for (let i = 0; i < GLOBAL_INFORMATION.length; i++) {
+                if (GLOBAL_INFORMATION[i].gender == 'female') {
+                    justGirls.push(GLOBAL_INFORMATION[i]);
                 }
             }
-            GLOBAL_INFORMATION = justGirls;
+            // GLOBAL_INFORMATION = justGirls;
             cleanDashboard();
             render(justGirls);
         }
 
     };
-    function  sortFromAtoZ(){
+
+    function sortFromAtoZ() {
         let infoToSorts;
         infoToSorts = GLOBAL_INFORMATION.slice().sort((a, b) => {
             let c = a.name.first;
@@ -173,7 +182,8 @@ let runApp = function (data) {
         cleanDashboard();
         render(infoToSorts);
     };
-    function sortFromZtoA(){
+
+    function sortFromZtoA() {
         let infoToSorts;
         infoToSorts = GLOBAL_INFORMATION.slice().sort((a, b) => {
             let c = a.name.first;
@@ -189,7 +199,40 @@ let runApp = function (data) {
         render(infoToSorts);
     };
 
-    function reset(){
+    function searchFriend(e) {
+        let searchResult = [];
+        let value = [];
+        console.log(e.keyCode);
+        if (e.keyCode <= 90 && e.keyCode >= 65) {
+            value = e.srcElement.value.split('');
+            console.log(value);
+        }else if(e.keyCode == 8){
+            value = e.srcElement.value.split('');
+            console.log(value);
+        }
+
+        for (let i = 0; i < GLOBAL_INFORMATION.length; i++) {
+            let name = GLOBAL_INFORMATION[i].name.first.split('');
+            for (j = value.length-1; j < value.length; j++) {
+                if (value[j] == name[j]) {
+                    searchResult.push(GLOBAL_INFORMATION[i]);
+                }
+            }
+        }
+        GLOBAL_INFORMATION = searchResult;
+        if (searchResult.length > 0) {
+            cleanDashboard();
+            render(searchResult);
+        }
+        if(value.length == 0){
+            reset();
+        }
+
+    };
+
+    function reset(e) {
+        searchInput.value = '';
+        GLOBAL_INFORMATION=data;
         cleanDashboard();
         render(data);
     };
@@ -197,9 +240,10 @@ let runApp = function (data) {
 
     byAgeUpBtn.addEventListener('click', sortFormSmallToBiggerAge);
     byAgeDownBtn.addEventListener('click', sortFormBiggerToSmallAge);
-    maleBtn.addEventListener('click', showFameOrFemale);
-    femaleBtn.addEventListener('click', showFameOrFemale)
+    maleBtn.addEventListener('click', showMaleOrFemale);
+    femaleBtn.addEventListener('click', showMaleOrFemale)
     azBtn.addEventListener('click', sortFromAtoZ);
     zaBtn.addEventListener('click', sortFromZtoA);
+    searchInput.addEventListener('keyup', searchFriend);
     resetBtn.addEventListener('click', reset);
-}; //runApp function ends
+};
