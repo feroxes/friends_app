@@ -140,24 +140,25 @@ let runApp = function (data) {
     function showMaleOrFemale(e) {
         let justMan = [];
         let justGirls = [];
-        if (e.target.id == 'male-btn') {
-            for (let i = 0; i < GLOBAL_INFORMATION.length; i++) {
-                if (GLOBAL_INFORMATION[i].gender == 'male') {
-                    justMan.push(GLOBAL_INFORMATION[i]);
+        if(e.target.id == 'male-btn'){
+            for(let i = 0; i < data.length; i++){
+                if(data[i].gender == 'male'){
+                    justMan.push(data[i]);
                 }
             }
+            GLOBAL_INFORMATION = justMan;
             cleanDashboard();
             render(justMan);
-        } else if (e.target.id == 'female-btn') {
-            for (let i = 0; i < GLOBAL_INFORMATION.length; i++) {
-                if (GLOBAL_INFORMATION[i].gender == 'female') {
-                    justGirls.push(GLOBAL_INFORMATION[i]);
+        }else if(e.target.id == 'female-btn'){
+            for(let i = 0; i < data.length; i++){
+                if(data[i].gender == 'female'){
+                    justGirls.push(data[i]);
                 }
             }
+            GLOBAL_INFORMATION = justGirls;
             cleanDashboard();
             render(justGirls);
         }
-
     };
 
     function sortFromAtoZ() {
