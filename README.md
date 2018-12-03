@@ -8,3 +8,5 @@ As a user, you can:
 * searching by typing name in search input and see immediately filtering on the page;
 * sorting cards by name/age in A-Z/Z-A;
 * filtering friends by age and gender;
+
+<a href="https://feroxes.github.io/friends_app/">Demo</a>
