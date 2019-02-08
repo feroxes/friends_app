@@ -79,7 +79,6 @@ let runApp = function (data) {
                     myInfoCard.children[1].innerHTML = userInformation[i].location.street;
                 } else if (targetClass[0] == 'phone') {
                     myInfoCard.children[0].innerHTML = 'My phone number is  ';
-                    myInfoCard.children[1].innerHTML = userInformation[i].cell;
                 }
             };
             cardIcons.addEventListener('click', updateFriendInfo)
